@@ -6,10 +6,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class UserDaoJDBCImpl implements UserDao {
-    Util util = new Util();
-    Connection connection = util.getConnection();
-    private final String tableName = "table_name" + System.currentTimeMillis();
+
+    Connection connection = Util.getConnection();
+    private final String tableName = "table_name";
 
     public UserDaoJDBCImpl() {
 
@@ -24,7 +26,6 @@ public class UserDaoJDBCImpl implements UserDao {
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
-
 
         } catch (SQLException ignore) {
         }
